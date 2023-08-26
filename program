@@ -1,0 +1,52 @@
+#jumbled game
+import random
+def word():
+    word = ["Apple","Orange","Banana","Watermelon"]
+    pick = random.choice(word)
+    return pick
+
+def choose(word):
+    new_word = "".join(random.sample(word,(len(word))))
+    return new_word
+
+#lets make the game
+def game():
+    P1 = input("Enter the First Player Name: ")
+    P2 = input("Enter the second player name: ")
+    print("Hi",P1,",", P2,"Welcome to the game")
+    point1=0
+    point2=0
+    player = 0
+    i = int(input("\nEnter 1 to start: "))
+    while(i==1):
+            qn_word = word()
+            qn = choose(qn_word)
+            print("\nYour Question is: ",qn)
+            if(player % 2!=0 ):
+                print(P1,"Your turn")
+                ans = input("Enter your answer: ")
+                if(ans == qn_word):
+                    print("Your Answer is correct")
+                    point1 = point1+1
+                    print("Your Total Point is:",point1)
+                    i = int(input("\n\nEnter 1 to continue"))
+                else:
+                    print("Your Answer is Wrong")
+                    print("Your Total point is:",point1)
+                    i = int(input("\n\nEnter 1 to start: "))
+                player = player+1
+            else:
+                print(P2, "Your turn")
+                ans = input("Enter your answer: ")
+                if (ans == qn_word):
+                    print("Your Answer is correct")
+                    point2 = point2 + 1
+                    print("Your Total Point is:", point2)
+                    i = int(input("\n\nEnter 1 to continue"))
+                else:
+                    print("Your Anser is Wrong")
+                    print("Your Total point is:", point2)
+                    i = int(input("\n\nEnter 1 to start"))
+                player = player + 1
+game()
+
